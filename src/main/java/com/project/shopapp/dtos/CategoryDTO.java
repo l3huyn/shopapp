@@ -3,7 +3,7 @@ package com.project.shopapp.dtos;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
-@Data //Là hàm toString
+@Data //Là hàm toString()
 @Getter //Hàm getter
 @Setter //Hàm Setter
 @AllArgsConstructor //Hàm khởi tạo có đối số

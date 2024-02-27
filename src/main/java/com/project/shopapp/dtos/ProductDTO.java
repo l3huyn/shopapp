@@ -1,17 +1,23 @@
 package com.project.shopapp.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+//import jakarta.validation.constraints.Max;
+//import jakarta.validation.constraints.Min;
+//import jakarta.validation.constraints.NotBlank;
+//import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
-@Data //Là hàm toString
+import java.util.List;
+
+
+@Data //Là hàm toString()
 @Getter //Hàm getter
 @Setter //Hàm Setter
 @AllArgsConstructor //Hàm khởi tạo có đối số
 @NoArgsConstructor //Hàm khởi tạo không đối số
+@Builder //Annotation xây dựng hàm khởi tạo
 public class ProductDTO {
     @NotBlank(message = "Title is required") //Annotation để kiểm tra xe chuỗi có rỗng hay không của trường name
     @Size(min = 3, max = 200, message = "Title must between 3 and 200 characters") //Annotation kiểm tra kích thước của trường name
@@ -24,5 +30,8 @@ public class ProductDTO {
     private String description;
 
     @JsonProperty("category_id") //Annotation dùng để matching tên trường trong DB và tên thuộc tính trong DTO
-    private String categoryId;
+    private Long categoryId;
+
+//    private List<MultipartFile> files;
+
 }
